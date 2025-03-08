@@ -107,7 +107,7 @@ const Product = () => {
         <div className="flex">
           <b className="border px-5 py-3 text-sm cursor-pointer">Description</b>
           <p className="border px-5 py-3 text-sm cursor-pointer">
-            Reviews (122)
+            Reviews (125)
           </p>
         </div>
         <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">

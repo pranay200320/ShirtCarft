@@ -58,11 +58,15 @@ const ShopContextProvider = ({ children }) => {
   const getcartAmount = () => {
     let totalAmount = 0;
 
-    for (const itemId in cartItems) {
-      const itemInfo = products.find((product) => product._id == itemId); // Ensure type compatibility with `==`
-
-      if (itemInfo) {
-        totalAmount += itemInfo.price * cartItems[itemId]; // Directly accessing quantity
+    console.log(totalAmount);
+    for (const items in cartItems) {
+      const itemInfo = products.find((product) => product._id == items); // Ensure type compatibility with `==`
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalAmount += itemInfo.price * cartItems[items][item];
+          }
+        } catch (error) {}
       }
     }
 
@@ -85,7 +89,7 @@ const ShopContextProvider = ({ children }) => {
   };
   //cheak the cart page
   useEffect(() => {
-    console.log(cartItems);
+    // console.log(cartItems);
   }, [cartItems]);
   return (
     <>
